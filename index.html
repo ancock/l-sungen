@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Klimaschutz – Lösungen & Verantwortung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="#hero">Start</a>
+  <a href="#loesungen">Lösungen</a>
+  <a href="#generator">Was kannst du tun?</a>
+  <a href="#rechte">Menschenrechte</a>
+</nav>
+
+<header id="hero" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Klimaschutz beginnt hier</h1>
+    <p>Was jede und jeder Einzelne tun kann – heute</p>
+  </div>
+</header>
+
+<main>
+
+<section id="loesungen" class="glass-card">
+  <h2>Konkrete Lösungen im Alltag</h2>
+
+  <div class="solutions-grid">
+    <div class="solution">
+      <h3>🏠 Energie sparen</h3>
+      <p>
+        Heizung um 1 °C senken, LEDs nutzen, Standby vermeiden –
+        kleine Maßnahmen mit großer Wirkung.
+      </p>
+    </div>
+
+    <div class="solution">
+      <h3>🚲 Mobilität</h3>
+      <p>
+        Fahrrad, Bus und Bahn sparen CO₂, verbessern die Luft
+        und fördern Gesundheit.
+      </p>
+    </div>
+
+    <div class="solution">
+      <h3>🌱 Natur schützen</h3>
+      <p>
+        Baumpflanzaktionen, Grünflächen und Schutz von Ökosystemen
+        binden CO₂ und schützen Lebensräume.
+      </p>
+    </div>
+
+    <div class="solution">
+      <h3>🛒 Alltagsentscheidungen</h3>
+      <p>
+        Regional einkaufen, weniger Fleisch, langlebige Produkte –
+        Konsum hat Klimafolgen.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="generator" class="glass-card">
+  <h2>Was kannst du konkret tun?</h2>
+
+  <label>
+    Dein Alter:
+    <input type="number" id="ageInput" min="10" max="99">
+  </label>
+
+  <label>
+    Dein Wohnort:
+    <select id="placeInput">
+      <option value="">Bitte wählen</option>
+      <option value="stadt">Stadt</option>
+      <option value="land">Ländlicher Raum</option>
+    </select>
+  </label>
+
+  <button id="generateBtn">Empfehlungen anzeigen</button>
+
+  <ol id="resultList" class="result-list"></ol>
+</section>
+
+<section id="rechte" class="glass-card">
+  <h2>Klimaschutz & Menschenrechte</h2>
+
+  <p>
+    Klimaschutz ist kein freiwilliger Luxus. Der Klimawandel bedroht
+    grundlegende Menschenrechte:
+  </p>
+
+  <ul>
+    <li>🏠 Recht auf Wohnen</li>
+    <li>💧 Recht auf sauberes Wasser</li>
+    <li>🍽️ Recht auf Nahrung</li>
+    <li>🛡️ Recht auf Leben und Sicherheit</li>
+  </ul>
+
+  <p>
+    Staaten – auch in der EU – haben die Pflicht, diese Rechte zu schützen.
+    Klimaschutz ist daher aktiver Menschenrechtsschutz.
+  </p>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
