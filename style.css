@@ -1,39 +1,82 @@
-* {
+/* =========================
+   RESET & BASIS
+========================= */
+:root {
+  --bg-main: #0b132b;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --accent: #2b7fff;
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #0b132b;
-  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #020617, #0b132b);
+  color: var(--text-main);
   line-height: 1.6;
 }
 
+/* =========================
+   NAVIGATION
+========================= */
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.6);
-  padding: 10px;
-  text-align: center;
-  z-index: 10;
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1000;
 }
 
 .nav a {
-  color: white;
-  margin: 0 15px;
+  color: var(--text-main);
   text-decoration: none;
+  font-weight: 500;
+  position: relative;
 }
 
-/* Hero */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 16px;
   text-align: center;
 }
 
@@ -48,64 +91,166 @@ body {
 
 .hero-content {
   position: relative;
+  max-width: 700px;
 }
 
 .hero h1 {
-  font-size: 3.8rem;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  margin-bottom: 12px;
 }
 
 .hero p {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--text-muted);
 }
 
-/* Content */
+/* =========================
+   MAIN LAYOUT
+========================= */
 main {
-  padding: 100px 20px;
+  padding: 96px 16px 40px;
 }
 
 .glass-card {
   max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+  margin: 32px auto;
+  padding: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
 }
 
-/* Lösungen */
+/* TYPOGRAFIE */
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 12px;
+}
+
+h3 {
+  margin-bottom: 8px;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.highlight {
+  margin-top: 20px;
+  padding: 16px;
+  border-left: 4px solid var(--accent);
+  background: rgba(43, 127, 255, 0.1);
+  border-radius: 8px;
+}
+
+/* =========================
+   LÖSUNGEN GRID
+========================= */
 .solutions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .solution {
-  background: rgba(0,0,0,0.3);
+  background: rgba(2, 6, 23, 0.7);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Generator */
+.solution:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   FORM / GENERATOR
+========================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
 label {
-  display: block;
-  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
-input, select {
-  margin-left: 10px;
-  padding: 5px;
+input,
+select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(2, 6, 23, 0.8);
+  color: var(--text-main);
 }
 
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* BUTTON */
 button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #2b7fff;
+  margin-top: 12px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #2563eb, #2b7fff);
   border: none;
-  border-radius: 8px;
+  border-radius: 14px;
   color: white;
+  font-size: 1rem;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(43, 127, 255, 0.4);
+}
+
+/* RESULTATE */
 .result-list {
   margin-top: 20px;
+  padding-left: 20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+@media (min-width: 600px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main {
+    padding: 120px 24px 60px;
+  }
+}
+
+@media (min-width: 900px) {
+  .solutions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .nav {
+    justify-content: center;
+    gap: 40px;
+  }
 }
