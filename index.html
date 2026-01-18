@@ -2,112 +2,168 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <title>Klimaschutz – Lösungen & Verantwortung</title>
+  <title>Klimaschutz, Lösungen & Menschenrechte</title>
+
+  <!-- Responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO & Schulprojekt-tauglich -->
+  <meta name="description" content="Interaktive Website über Klimaschutz, konkrete Alltagslösungen und den Zusammenhang zwischen Klimawandel und Menschenrechten in der EU und weltweit.">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav class="nav">
+<!-- Navigation -->
+<nav class="nav" aria-label="Hauptnavigation">
   <a href="#hero">Start</a>
   <a href="#loesungen">Lösungen</a>
-  <a href="#generator">Was kannst du tun?</a>
+  <a href="#generator">Dein Beitrag</a>
   <a href="#rechte">Menschenrechte</a>
 </nav>
 
-<header id="hero" class="hero">
-  <div class="hero-bg"></div>
+<!-- Hero-Bereich -->
+<header id="hero" class="hero" role="banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+
   <div class="hero-content">
-    <h1>Klimaschutz beginnt hier</h1>
-    <p>Was jede und jeder Einzelne tun kann – heute</p>
+    <h1>Klimaschutz beginnt bei uns allen</h1>
+    <p>
+      Verantwortung übernehmen – für Umwelt, Gesellschaft und Menschenrechte
+    </p>
   </div>
 </header>
 
-<main>
+<main id="content">
 
-<section id="loesungen" class="glass-card">
-  <h2>Konkrete Lösungen im Alltag</h2>
+<!-- Lösungen -->
+<section id="loesungen" class="glass-card" aria-labelledby="solutions-title">
+  <h2 id="solutions-title">Konkrete Lösungen im Alltag</h2>
+
+  <p class="section-intro">
+    Jeder Mensch kann durch bewusste Entscheidungen einen Beitrag leisten.
+    Diese Maßnahmen helfen nicht nur dem Klima, sondern fördern auch soziale
+    Gerechtigkeit und den Schutz zukünftiger Generationen.
+  </p>
 
   <div class="solutions-grid">
-    <div class="solution">
+    <article class="solution">
       <h3>🏠 Energie sparen</h3>
       <p>
-        Heizung um 1 °C senken, LEDs nutzen, Standby vermeiden –
-        kleine Maßnahmen mit großer Wirkung.
+        Senke die Raumtemperatur um 1 °C, nutze LED-Beleuchtung und vermeide
+        Standby-Modi. Weniger Energieverbrauch reduziert Emissionen und senkt
+        langfristig Kosten für Haushalte.
       </p>
-    </div>
+    </article>
 
-    <div class="solution">
-      <h3>🚲 Mobilität</h3>
+    <article class="solution">
+      <h3>🚲 Nachhaltige Mobilität</h3>
       <p>
-        Fahrrad, Bus und Bahn sparen CO₂, verbessern die Luft
-        und fördern Gesundheit.
+        Fahrrad, Bus und Bahn entlasten den Verkehr, verbessern die Luftqualität
+        und fördern die körperliche Gesundheit – besonders in Städten.
       </p>
-    </div>
+    </article>
 
-    <div class="solution">
-      <h3>🌱 Natur schützen</h3>
+    <article class="solution">
+      <h3>🌱 Natur & Ökosysteme schützen</h3>
       <p>
-        Baumpflanzaktionen, Grünflächen und Schutz von Ökosystemen
-        binden CO₂ und schützen Lebensräume.
+        Wälder, Moore und Grünflächen binden CO₂, schützen vor Überschwemmungen
+        und sichern Lebensräume für Menschen und Tiere.
       </p>
-    </div>
+    </article>
 
-    <div class="solution">
-      <h3>🛒 Alltagsentscheidungen</h3>
+    <article class="solution">
+      <h3>🛒 Bewusster Konsum</h3>
       <p>
-        Regional einkaufen, weniger Fleisch, langlebige Produkte –
-        Konsum hat Klimafolgen.
+        Regional einkaufen, Lebensmittelverschwendung vermeiden und langlebige
+        Produkte bevorzugen. Nachhaltiger Konsum stärkt faire Arbeitsbedingungen
+        weltweit.
       </p>
-    </div>
+    </article>
   </div>
 </section>
 
-<section id="generator" class="glass-card">
-  <h2>Was kannst du konkret tun?</h2>
+<!-- Generator -->
+<section id="generator" class="glass-card" aria-labelledby="generator-title">
+  <h2 id="generator-title">Dein persönlicher Klimabeitrag</h2>
 
-  <label>
-    Dein Alter:
-    <input type="number" id="ageInput" min="10" max="99">
-  </label>
-
-  <label>
-    Dein Wohnort:
-    <select id="placeInput">
-      <option value="">Bitte wählen</option>
-      <option value="stadt">Stadt</option>
-      <option value="land">Ländlicher Raum</option>
-    </select>
-  </label>
-
-  <button id="generateBtn">Empfehlungen anzeigen</button>
-
-  <ol id="resultList" class="result-list"></ol>
-</section>
-
-<section id="rechte" class="glass-card">
-  <h2>Klimaschutz & Menschenrechte</h2>
-
-  <p>
-    Klimaschutz ist kein freiwilliger Luxus. Der Klimawandel bedroht
-    grundlegende Menschenrechte:
+  <p class="section-intro">
+    Gib einige Informationen an und erhalte individuelle Vorschläge, wie du
+    deinen Alltag klimafreundlicher und sozial verantwortungsvoll gestalten
+    kannst.
   </p>
 
-  <ul>
-    <li>🏠 Recht auf Wohnen</li>
-    <li>💧 Recht auf sauberes Wasser</li>
-    <li>🍽️ Recht auf Nahrung</li>
-    <li>🛡️ Recht auf Leben und Sicherheit</li>
-  </ul>
+  <form id="climateForm" novalidate>
+    <div class="form-group">
+      <label for="ageInput">Dein Alter</label>
+      <input
+        type="number"
+        id="ageInput"
+        min="10"
+        max="99"
+        placeholder="z. B. 16"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="placeInput">Dein Wohnort</label>
+      <select id="placeInput" required>
+        <option value="">Bitte wählen</option>
+        <option value="stadt">Stadt</option>
+        <option value="land">Ländlicher Raum</option>
+      </select>
+    </div>
+
+    <button type="button" id="generateBtn">
+      Empfehlungen anzeigen
+    </button>
+  </form>
+
+  <ol id="resultList" class="result-list" aria-live="polite"></ol>
+</section>
+
+<!-- Menschenrechte -->
+<section id="rechte" class="glass-card" aria-labelledby="rights-title">
+  <h2 id="rights-title">Klimaschutz als Menschenrecht</h2>
 
   <p>
-    Staaten – auch in der EU – haben die Pflicht, diese Rechte zu schützen.
-    Klimaschutz ist daher aktiver Menschenrechtsschutz.
+    Der Klimawandel ist nicht nur ein Umweltproblem, sondern eine der größten
+    Herausforderungen für die Wahrung der Menschenrechte weltweit.
+    Extreme Wetterereignisse, Dürren und steigende Meeresspiegel gefährden
+    Millionen von Menschen in ihrer Existenz.
+  </p>
+
+  <h3>Betroffene Grundrechte</h3>
+  <ul>
+    <li>🏠 <strong>Recht auf Wohnen:</strong> Überschwemmungen und Stürme zerstören Wohnraum.</li>
+    <li>💧 <strong>Recht auf sauberes Wasser:</strong> Wasserknappheit nimmt in vielen Regionen zu.</li>
+    <li>🍽️ <strong>Recht auf Nahrung:</strong> Ernteausfälle bedrohen die Versorgungssicherheit.</li>
+    <li>🛡️ <strong>Recht auf Leben und Gesundheit:</strong> Hitzewellen und Umweltverschmutzung erhöhen Gesundheitsrisiken.</li>
+  </ul>
+
+  <h3>Verantwortung von Staaten und der EU</h3>
+  <p>
+    Nach internationalen Abkommen und der EU-Grundrechtecharta sind Staaten
+    verpflichtet, ihre Bevölkerung vor den Folgen des Klimawandels zu schützen.
+    Klimapolitik bedeutet daher aktiven Schutz der Menschenwürde und der
+    Rechte zukünftiger Generationen.
+  </p>
+
+  <p class="highlight">
+    Klimaschutz ist kein freiwilliger Beitrag – er ist Teil globaler
+    Verantwortung und gelebter Menschenrechte.
   </p>
 </section>
 
 </main>
+
+<footer class="footer">
+  <p>
+    Schulprojekt – Thema: Klimaschutz, Nachhaltigkeit & Menschenrechte in Europa
+  </p>
+</footer>
 
 <script src="script.js"></script>
 </body>
