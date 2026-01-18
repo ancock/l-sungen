@@ -1,52 +1,96 @@
-/* Smooth Scroll */
+/* =========================
+   SMOOTH SCROLL (ACCESSIBLE)
+========================= */
 document.querySelectorAll('.nav a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(link.getAttribute('href'))
-      .scrollIntoView({ behavior: "smooth" });
+  link.addEventListener('click', event => {
+    event.preventDefault();
+
+    const targetId = link.getAttribute('href');
+    const target = document.querySelector(targetId);
+
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    // Accessibility: Fokus auf Ziel setzen
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
   });
 });
 
-/* Generator */
+/* =========================
+   GENERATOR LOGIK
+========================= */
+const form = document.getElementById("climateForm");
 const ageInput = document.getElementById("ageInput");
 const placeInput = document.getElementById("placeInput");
 const generateBtn = document.getElementById("generateBtn");
 const resultList = document.getElementById("resultList");
 
 generateBtn.addEventListener("click", () => {
-  const age = ageInput.value;
+  const age = parseInt(ageInput.value, 10);
   const place = placeInput.value;
 
+  // Reset
   resultList.innerHTML = "";
 
-  if (!age || !place) {
-    resultList.innerHTML = "<li>Bitte gib Alter und Wohnort an.</li>";
+  // Validierung
+  if (isNaN(age) || age < 10 || age > 99 || !place) {
+    showMessage("Bitte gib ein gültiges Alter (10–99) und deinen Wohnort an.");
     return;
   }
 
   const steps = [];
 
+  /* Altersabhängige Empfehlungen */
   if (age < 18) {
-    steps.push("Starte ein Klimaprojekt an deiner Schule.");
-    steps.push("Sprich mit deiner Familie über Energiesparen.");
+    steps.push("Starte oder unterstütze ein Schulprojekt zu Klimaschutz und Menschenrechten.");
+    steps.push("Sprich in deiner Familie über Energiesparen und faire Konsumentscheidungen.");
   } else {
-    steps.push("Wechsle zu Ökostrom oder informiere dich darüber.");
-    steps.push("Reduziere Flugreisen und nutze Bahn oder Fahrrad.");
+    steps.push("Wechsle zu Ökostrom und informiere dich über nachhaltige Energieanbieter.");
+    steps.push("Plane Reisen möglichst mit Bahn oder Bus statt mit dem Flugzeug.");
   }
 
+  /* Ortsabhängige Empfehlungen */
   if (place === "stadt") {
-    steps.push("Nutze öffentliche Verkehrsmittel oder Carsharing.");
-    steps.push("Engagiere dich in urbanen Begrünungsprojekten.");
+    steps.push("Nutze öffentliche Verkehrsmittel, Carsharing oder das Fahrrad im Alltag.");
+    steps.push("Engagiere dich in urbanen Begrünungs- oder Nachbarschaftsprojekten.");
   } else {
-    steps.push("Installiere eine Mini-Solaranlage (Balkonkraftwerk).");
-    steps.push("Unterstütze lokale Landwirtschaft.");
+    steps.push("Prüfe die Nutzung eines Balkonkraftwerks oder lokaler Solarangebote.");
+    steps.push("Unterstütze regionale Betriebe und nachhaltige Landwirtschaft.");
   }
 
-  steps.push("Informiere andere über Klimaschutz & Menschenrechte.");
+  /* Menschenrechts-Bezug */
+  steps.push("Informiere andere darüber, wie Klimaschutz das Recht auf Wasser, Nahrung und Gesundheit schützt.");
+  steps.push("Beteilige dich an Initiativen, die sich für Klimagerechtigkeit und globale Verantwortung einsetzen.");
 
-  steps.forEach(step => {
+  renderList(steps);
+});
+
+/* =========================
+   HILFSFUNKTIONEN
+========================= */
+function showMessage(message) {
+  const li = document.createElement("li");
+  li.textContent = message;
+  li.style.color = "#93c5fd";
+  resultList.appendChild(li);
+}
+
+function renderList(items) {
+  items.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = step;
+    li.textContent = item;
     resultList.appendChild(li);
   });
-});
+
+  // Kleine Animation für UX
+  resultList.style.opacity = "0";
+  requestAnimationFrame(() => {
+    resultList.style.transition = "opacity 0.4s ease";
+    resultList.style.opacity = "1";
+  });
+}
